@@ -178,6 +178,21 @@ Please, use your own prefix name instead of *my* to avoid name conflicts.
 10. Delete *my-norfolk-cache* resource group.
 
 
+## Quest "Clarissa"
+
+1. Create a new web app, and setup deployment to "Local Git Repository". Add *NorfolkCache* folder, and deploy the application.
+
+2. Add existed *NorfolkCache.SpecialServices* project to *NorfolkCache* solution, reference the project from *NorfolkCacheWebApp* and modify *DependencyConfig* to register *MyService* (uncomment code after TODO).
+
+3. Commit, push.
+
+4. Open "Deployment options", and make sure that the build failed.
+
+5. Investigate an error both using Azure Portal and Kudu console.
+
+6. Fix an error by changing *NorfolkCache.SpecialServices* project file. Redeploy, and make sure that the application is deployed successfully.
+
+
 ## Questions
 
 1. What is a resource group location?
