@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace NorfolkCache.Services
+namespace NorfolkCache.Services.CacheLog
 {
     public class CacheServiceTraceLog : CacheServiceDecorator
     {

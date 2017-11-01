@@ -50,5 +50,26 @@ namespace NorfolkCacheWebApp.Tests.Controllers
             Assert.AreEqual("namespace2", result.ElementAt(1).Namespace);
             Assert.AreEqual("namespace3", result.ElementAt(2).Namespace);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(HttpResponseException))]
+        public void RemoveNamespaces_ExceptionThrown_InternalServerError()
+        {
+            var mock = new Mock<ICacheService>();
+            mock.Setup(s => s.Clear()).Throws<Exception>();
+            var controller = new CacheController(mock.Object);
+
+            controller.RemoveNamespaces();
+        }
+
+        [TestMethod]
+        public void RemoveNamespaces_NamespacesRemoved_NoContent()
+        {
+            var mock = new Mock<ICacheService>();
+            mock.Setup(s => s.Clear());
+            var controller = new CacheController(mock.Object);
+
+            controller.RemoveNamespaces();
+        }
     }
 }

@@ -6,11 +6,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F6B9B418-E565-46EA-B32C-FB4EFFB2D3D0}</ProjectGuid>
+    <ProjectGuid>{4EE98675-4940-474E-A3AD-2BC9E88BDDAE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NorfolkCache.Services</RootNamespace>
-    <AssemblyName>NorfolkCache.Services</AssemblyName>
+    <RootNamespace>NorfolkCache.History</RootNamespace>
+    <AssemblyName>NorfolkCache.History</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,7 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,23 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CacheHistory\CacheHistoryAction.cs" />
-    <Compile Include="CacheHistory\CacheHistoryRecord.cs" />
-    <Compile Include="CacheHistory\CacheServiceHistory.cs" />
-    <Compile Include="CacheHistory\ICacheHistoryService.cs" />
-    <Compile Include="CacheService.cs" />
-    <Compile Include="CacheServiceDecorator.cs" />
-    <Compile Include="CacheLog\CacheServiceTraceLog.cs" />
-    <Compile Include="DumpExceptionLog.cs" />
-    <Compile Include="ExceptionLog.cs" />
-    <Compile Include="CacheHistory\ICacheHistoryWriterService.cs" />
-    <Compile Include="ICacheService.cs" />
-    <Compile Include="ICacheServiceInfoProvider.cs" />
-    <Compile Include="IExceptionLog.cs" />
-    <Compile Include="KeyValueRecord.cs" />
-    <Compile Include="NamespaceRecord.cs" />
+    <Compile Include="CacheHistoryRecord.cs" />
+    <Compile Include="DatabaseCacheHistoryService.cs" />
+    <Compile Include="HistoryDatabaseContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\NorfolkCache.Services\NorfolkCache.Services.csproj">
+      <Project>{f6b9b418-e565-46ea-b32c-fb4effb2d3d0}</Project>
+      <Name>NorfolkCache.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>
