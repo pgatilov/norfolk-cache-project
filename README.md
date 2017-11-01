@@ -16,9 +16,9 @@ Fork this repository to create your own copy that you will use in this program.
 
 ## Environment Branches
 
-- **development** - an unstable development branch for Continuous Integration environment.
 - **master** - a stable production-ready branch for UAT environment.
-- **release** - a stable release branch for Production environment.
+- **development** - an unstable development branch for Continuous Integration environment (create in your repository).
+- **release** - a stable release branch for Production environment (create in your repository).
 
 Learn more about ["Environments in Release Management"](https://docs.microsoft.com/en-us/vsts/build-release/concepts/definitions/release/environments).
 
