@@ -107,9 +107,13 @@ Please, use your own prefix name instead of *my* to avoid name conflicts.
 10. Using console:
 	* Open "Console" and go to D:\home\site\wwwroot folder. Create a new "my-test" folder.
 	* Open CMD Debug Console from Kudu console in an another browser tab and go to D:\home\site\wwwroot folder. Find "my-test" folder in the current folder.
-	* Print the web app configuration file:
-```sh
-$ type Web.config
+	* Edit Web.config, and add customErrors section:
+```xml
+<configuration>
+    <system.web>
+        <customErrors mode="Off"/>
+    </system.web>
+</configuration>
 ```
 
 11. Setup *my-norfolk-cache-uat* web app.
