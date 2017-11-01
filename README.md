@@ -43,7 +43,7 @@ $ cd ApiTests
 $ npm install
 $ rem Replace host in urlBase with relevant environment host in test\tests.js. 
 $ notepad test\tests.js
-$ npm tests
+$ npm test
 ```
 
 
