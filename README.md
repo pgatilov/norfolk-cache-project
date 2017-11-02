@@ -38,6 +38,8 @@ Open ASP.NET MVC solution file [NorfolkCache](NorfolkCache\NorfolkCache.sln) wit
 
 ## Run API tests
 
+Install NodeJS, and open NodeJS command prompt:
+
 ```sh
 $ cd ApiTests
 $ npm install
