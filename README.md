@@ -56,7 +56,7 @@ The goal of this task is to create a set of App Services for three different env
 - *my-norfolk-cache-uat* - a stable UAT environment with the latest version of **master** branch.
 - *my-norfolk-cache* - a stable production environment with the latest version of **release** branch.
 
-**Please, use your own prefix name instead of *my* to avoid name conflicts.**
+### Please, use your own prefix name instead of *my* to avoid name conflicts.
 
 
 ## Scenario "Abigail"
