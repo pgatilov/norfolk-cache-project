@@ -38,7 +38,7 @@ Open ASP.NET MVC solution file [NorfolkCache](NorfolkCache\NorfolkCache.sln) wit
 
 ## Run API tests
 
-Install NodeJS, and open NodeJS command prompt:
+Install NodeJS, and run the commands from NodeJS command prompt:
 
 ```sh
 $ cd ApiTests
@@ -56,7 +56,7 @@ The goal of this task is to create a set of App Services for three different env
 - *my-norfolk-cache-uat* - a stable UAT environment with the latest version of **master** branch.
 - *my-norfolk-cache* - a stable production environment with the latest version of **release** branch.
 
-Please, use your own prefix name instead of *my* to avoid name conflicts.
+**Please, use your own prefix name instead of *my* to avoid name conflicts.**
 
 
 ## Scenario "Abigail"
@@ -135,7 +135,7 @@ Please, use your own prefix name instead of *my* to avoid name conflicts.
 	* Send *template.json* (rename to Abigail.json) file to your mentor.
 
 14. Setup performance testing for UAT environment:
-	* Enable Performance Test (VSTS account is needed). Test parameters:
+	* Open "Deployment options", and enable Performance Test (VSTS account is needed). Test parameters are:
 		* Url: http://my-norfolk-cache-uat.azurewebsites.net/api/cache/namespaces
 		* Performance Test name: PerfTestMyNorfolkCacheUat.
 		* User Load: 40
@@ -171,7 +171,7 @@ Please, use your own prefix name instead of *my* to avoid name conflicts.
 
 6. Open https://my-norfolk-cache.azurewebsites.net, and make sure that this web app is not deployed.
 
-7. Swap *relese* and *production* deployment slots. Check out [release](https://my-norfolk-cache-release.azurewebsites.net/) and [production](https://my-norfolk-cache.azurewebsites.net/) environments to make sure that the slots are swapped.
+7. Swap *release* and *production* deployment slots. Check out [release](https://my-norfolk-cache-release.azurewebsites.net/) and [production](https://my-norfolk-cache.azurewebsites.net/) environments to make sure that the slots are swapped.
 
 8. Open "Deployment option" for *release* slot, and sync the slot deployment. Make sure that [release](https://my-norfolk-cache-release.azurewebsites.net/) environment is synchronized.
 
