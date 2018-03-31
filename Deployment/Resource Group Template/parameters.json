@@ -1,0 +1,66 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sites_pgatilov_norfolk_cache_name": {
+            "value": null
+        },
+        "sites_pgatilov_norfolk_cache_ci_name": {
+            "value": null
+        },
+        "sites_pgatilov_norfolk_cache_uat_name": {
+            "value": null
+        },
+        "serverfarms_pgatilov_norfolk_cache_name": {
+            "value": null
+        },
+        "config_web_name": {
+            "value": null
+        },
+        "serverfarms_pgatilov_norfolk_cache_ci_plan_name": {
+            "value": null
+        },
+        "config_web_name_1": {
+            "value": null
+        },
+        "serverfarms_pgatilov_norfolk_cache_uat_plan_name": {
+            "value": null
+        },
+        "config_web_name_2": {
+            "value": null
+        },
+        "storageAccounts_pgatilovnorfolkcachelogs_name": {
+            "value": null
+        },
+        "components_pgatilov_norfolk_cache_insights_name": {
+            "value": null
+        },
+        "components_pgatilov_norfolk_cache_ci_insights_name": {
+            "value": null
+        },
+        "components_pgatilov_norfolk_cache_uat_insights_name": {
+            "value": null
+        },
+        "deployments_dc5695406d45bf5bd2292ac5e432c135c89df8db_name": {
+            "value": null
+        },
+        "deployments_c960d1faead3f621abab1efd2de319479b48ba30_name": {
+            "value": null
+        },
+        "deployments_dc5695406d45bf5bd2292ac5e432c135c89df8db_name_1": {
+            "value": null
+        },
+        "deployments_dc5695406d45bf5bd2292ac5e432c135c89df8db_name_2": {
+            "value": null
+        },
+        "hostNameBindings_pgatilov_norfolk_cache.azurewebsites.net_name": {
+            "value": null
+        },
+        "hostNameBindings_pgatilov_norfolk_cache_ci.azurewebsites.net_name": {
+            "value": null
+        },
+        "hostNameBindings_pgatilov_norfolk_cache_uat.azurewebsites.net_name": {
+            "value": null
+        }
+    }
+}
