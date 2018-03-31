@@ -94,7 +94,6 @@ The goal of this task is to create a set of App Services for three different env
 2017-10-31T12:44:39  PID[5944] Information CacheService.TryGet() exit
 2017-10-31T12:44:39  PID[5944] Information CacheService.TryGetNamespaceKeys() enter
 2017-10-31T12:44:39  PID[5944] Information CacheService.TryGetNamespaceKeys() exit
-...
 ```
 
 	* Open "Log stream", go to "Web server logs" and run API tests. (["Enable diagnostics logging"](https://docs.microsoft.com/en-us/azure/app-service/web-sites-enable-diagnostic-log).)
