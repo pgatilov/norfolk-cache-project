@@ -58,6 +58,10 @@
             "defaultValue": "dc5695406d45bf5bd2292ac5e432c135c89df8db",
             "type": "String"
         },
+        "deployments_9a9aeca7add1f7bd7e3f710c1d43be005e49a70f_name": {
+            "defaultValue": "9a9aeca7add1f7bd7e3f710c1d43be005e49a70f",
+            "type": "String"
+        },
         "deployments_c960d1faead3f621abab1efd2de319479b48ba30_name": {
             "defaultValue": "c960d1faead3f621abab1efd2de319479b48ba30",
             "type": "String"
@@ -430,7 +434,7 @@
                 "pythonVersion": "",
                 "nodeVersion": "",
                 "linuxFxVersion": "",
-                "requestTracingEnabled": true,
+                "requestTracingEnabled": false,
                 "requestTracingExpirationTime": "2018-03-31T13:26:00Z",
                 "remoteDebuggingEnabled": false,
                 "remoteDebuggingVersion": null,
@@ -518,6 +522,28 @@
             ]
         },
         {
+            "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourcegroups/pgatilov-norfolk-cache/providers/Microsoft.Web/sites/pgatilov-norfolk-cache-ci/deployments/9a9aeca7add1f7bd7e3f710c1d43be005e49a70f'.",
+            "type": "Microsoft.Web/sites/deployments",
+            "name": "[concat(parameters('sites_pgatilov_norfolk_cache_ci_name'), '/', parameters('deployments_9a9aeca7add1f7bd7e3f710c1d43be005e49a70f_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "id": "[parameters('deployments_9a9aeca7add1f7bd7e3f710c1d43be005e49a70f_name')]",
+                "status": 4,
+                "author_email": "pgatilov@outlook.com",
+                "author": "Pavel Gatilov",
+                "deployer": "GitHub",
+                "message": "ARM template added\n",
+                "start_time": "2018-03-31T13:16:14.8333068Z",
+                "end_time": "2018-03-31T13:17:00.6979941Z",
+                "active": true
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_pgatilov_norfolk_cache_ci_name'))]"
+            ]
+        },
+        {
             "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourcegroups/pgatilov-norfolk-cache/providers/Microsoft.Web/sites/pgatilov-norfolk-cache-ci/deployments/c960d1faead3f621abab1efd2de319479b48ba30'.",
             "type": "Microsoft.Web/sites/deployments",
             "name": "[concat(parameters('sites_pgatilov_norfolk_cache_ci_name'), '/', parameters('deployments_c960d1faead3f621abab1efd2de319479b48ba30_name'))]",
@@ -533,7 +559,7 @@
                 "message": "Trying to fix readme formatting\n",
                 "start_time": "2018-03-31T12:18:23.2133841Z",
                 "end_time": "2018-03-31T12:18:35.3631816Z",
-                "active": true
+                "active": false
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('sites_pgatilov_norfolk_cache_ci_name'))]"
@@ -703,10 +729,10 @@
                 "status": 4,
                 "author_email": "aliaksandr_rykau@epam.com",
                 "author": "Aliaksandr Rykau",
-                "deployer": "",
+                "deployer": "GitHub",
                 "message": "Fix bolding.\n",
-                "start_time": "2018-03-31T12:45:07.9925547Z",
-                "end_time": "2018-03-31T12:45:31.2502009Z",
+                "start_time": "2018-03-31T13:21:52.2819892Z",
+                "end_time": "2018-03-31T13:32:04.9948257Z",
                 "active": true
             },
             "dependsOn": [
