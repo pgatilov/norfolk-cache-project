@@ -1,0 +1,894 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sites_pgatilov_norfolk_cache_name": {
+            "defaultValue": "pgatilov-norfolk-cache",
+            "type": "String"
+        },
+        "slots_ci_name": {
+            "defaultValue": "ci",
+            "type": "String"
+        },
+        "slots_uat_name": {
+            "defaultValue": "uat",
+            "type": "String"
+        },
+        "serverfarms_pgatilov_norfolk_cache_plan_name": {
+            "defaultValue": "pgatilov-norfolk-cache-plan",
+            "type": "String"
+        },
+        "config_web_name": {
+            "defaultValue": "web",
+            "type": "String"
+        },
+        "slots_release_name": {
+            "defaultValue": "release",
+            "type": "String"
+        },
+        "config_web_name_1": {
+            "defaultValue": "web",
+            "type": "String"
+        },
+        "config_web_name_2": {
+            "defaultValue": "web",
+            "type": "String"
+        },
+        "config_web_name_3": {
+            "defaultValue": "web",
+            "type": "String"
+        },
+        "deployments_d8cd4c1ad34c8c5be81333b628989f9a27dc3263_name": {
+            "defaultValue": "d8cd4c1ad34c8c5be81333b628989f9a27dc3263",
+            "type": "String"
+        },
+        "hostNameBindings_pgatilov_norfolk_cache.azurewebsites.net_name": {
+            "defaultValue": "pgatilov-norfolk-cache.azurewebsites.net",
+            "type": "String"
+        },
+        "deployments_d8cd4c1ad34c8c5be81333b628989f9a27dc3263_name_1": {
+            "defaultValue": "d8cd4c1ad34c8c5be81333b628989f9a27dc3263",
+            "type": "String"
+        },
+        "deployments_d8cd4c1ad34c8c5be81333b628989f9a27dc3263_name_2": {
+            "defaultValue": "d8cd4c1ad34c8c5be81333b628989f9a27dc3263",
+            "type": "String"
+        },
+        "deployments_d8cd4c1ad34c8c5be81333b628989f9a27dc3263_name_3": {
+            "defaultValue": "d8cd4c1ad34c8c5be81333b628989f9a27dc3263",
+            "type": "String"
+        },
+        "hostNameBindings_pgatilov_norfolk_cache_ci.azurewebsites.net_name": {
+            "defaultValue": "pgatilov-norfolk-cache-ci.azurewebsites.net",
+            "type": "String"
+        },
+        "hostNameBindings_pgatilov_norfolk_cache_uat.azurewebsites.net_name": {
+            "defaultValue": "pgatilov-norfolk-cache-uat.azurewebsites.net",
+            "type": "String"
+        },
+        "hostNameBindings_pgatilov_norfolk_cache_release.azurewebsites.net_name": {
+            "defaultValue": "pgatilov-norfolk-cache-release.azurewebsites.net",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourceGroups/pgatilov-norfolk-cache/providers/Microsoft.Web/serverfarms/pgatilov-norfolk-cache-plan'.",
+            "type": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "S1",
+                "tier": "Standard",
+                "size": "S1",
+                "family": "S",
+                "capacity": 1
+            },
+            "kind": "app",
+            "name": "[parameters('serverfarms_pgatilov_norfolk_cache_plan_name')]",
+            "apiVersion": "2016-09-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "name": "[parameters('serverfarms_pgatilov_norfolk_cache_plan_name')]",
+                "workerTierName": null,
+                "adminSiteName": null,
+                "hostingEnvironmentProfile": null,
+                "perSiteScaling": false,
+                "reserved": false,
+                "targetWorkerCount": 0,
+                "targetWorkerSizeId": 0
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourceGroups/pgatilov-norfolk-cache/providers/Microsoft.Web/sites/pgatilov-norfolk-cache'.",
+            "type": "Microsoft.Web/sites",
+            "kind": "app",
+            "name": "[parameters('sites_pgatilov_norfolk_cache_name')]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "tags": {
+                "hidden-related:/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourcegroups/pgatilov-norfolk-cache/providers/Microsoft.Web/serverfarms/pgatilov-norfolk-cache-plan": "empty"
+            },
+            "scale": null,
+            "properties": {
+                "enabled": true,
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_pgatilov_norfolk_cache_name'),'.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Standard"
+                    },
+                    {
+                        "name": "[concat(parameters('sites_pgatilov_norfolk_cache_name'),'.scm.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Repository"
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_pgatilov_norfolk_cache_plan_name'))]",
+                "reserved": false,
+                "siteConfig": null,
+                "scmSiteAlsoStopped": false,
+                "hostingEnvironmentProfile": null,
+                "clientAffinityEnabled": true,
+                "clientCertEnabled": false,
+                "hostNamesDisabled": false,
+                "containerSize": 0,
+                "dailyMemoryTimeQuota": 0,
+                "cloningInfo": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_pgatilov_norfolk_cache_plan_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourceGroups/pgatilov-norfolk-cache/providers/Microsoft.Web/sites/pgatilov-norfolk-cache/config/web'.",
+            "type": "Microsoft.Web/sites/config",
+            "name": "[concat(parameters('sites_pgatilov_norfolk_cache_name'), '/', parameters('config_web_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "tags": {
+                "hidden-related:/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourcegroups/pgatilov-norfolk-cache/providers/Microsoft.Web/serverfarms/pgatilov-norfolk-cache-plan": "empty"
+            },
+            "scale": null,
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "phpVersion": "5.6",
+                "pythonVersion": "",
+                "nodeVersion": "",
+                "linuxFxVersion": "",
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": null,
+                "httpLoggingEnabled": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "$pgatilov-norfolk-cache",
+                "publishingPassword": null,
+                "appSettings": null,
+                "metadata": null,
+                "connectionStrings": null,
+                "machineKey": null,
+                "handlerMappings": null,
+                "documentRoot": null,
+                "scmType": "None",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "javaVersion": null,
+                "javaContainer": null,
+                "javaContainerVersion": null,
+                "appCommandLine": "",
+                "managedPipelineMode": "Integrated",
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": false,
+                        "virtualDirectories": null
+                    }
+                ],
+                "winAuthAdminState": 0,
+                "winAuthTenantState": 0,
+                "customAppPoolIdentityAdminState": false,
+                "customAppPoolIdentityTenantState": false,
+                "runtimeADUser": null,
+                "runtimeADUserPassword": null,
+                "loadBalancing": "LeastRequests",
+                "routingRules": [],
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "limits": null,
+                "autoHealEnabled": false,
+                "autoHealRules": null,
+                "tracingOptions": null,
+                "vnetName": "",
+                "siteAuthEnabled": false,
+                "siteAuthSettings": {
+                    "enabled": null,
+                    "unauthenticatedClientAction": null,
+                    "tokenStoreEnabled": null,
+                    "allowedExternalRedirectUrls": null,
+                    "defaultProvider": null,
+                    "clientId": null,
+                    "clientSecret": null,
+                    "issuer": null,
+                    "allowedAudiences": null,
+                    "additionalLoginParams": null,
+                    "isAadAutoProvisioned": false,
+                    "googleClientId": null,
+                    "googleClientSecret": null,
+                    "googleOAuthScopes": null,
+                    "facebookAppId": null,
+                    "facebookAppSecret": null,
+                    "facebookOAuthScopes": null,
+                    "twitterConsumerKey": null,
+                    "twitterConsumerSecret": null,
+                    "microsoftAccountClientId": null,
+                    "microsoftAccountClientSecret": null,
+                    "microsoftAccountOAuthScopes": null
+                },
+                "cors": null,
+                "push": null,
+                "apiDefinition": null,
+                "autoSwapSlotName": null,
+                "localMySqlEnabled": false,
+                "managedServiceIdentityId": null,
+                "ipSecurityRestrictions": null,
+                "http20Enabled": true,
+                "minTlsVersion": "1.0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_pgatilov_norfolk_cache_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourcegroups/pgatilov-norfolk-cache/providers/Microsoft.Web/sites/pgatilov-norfolk-cache/deployments/d8cd4c1ad34c8c5be81333b628989f9a27dc3263'.",
+            "type": "Microsoft.Web/sites/deployments",
+            "name": "[concat(parameters('sites_pgatilov_norfolk_cache_name'), '/', parameters('deployments_d8cd4c1ad34c8c5be81333b628989f9a27dc3263_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "id": "[parameters('deployments_d8cd4c1ad34c8c5be81333b628989f9a27dc3263_name')]",
+                "status": 4,
+                "author_email": "pgatilov@outlook.com",
+                "author": "Pavel Gatilov",
+                "deployer": "GitHub",
+                "message": "Test changes to web UI\n",
+                "start_time": "2018-03-31T14:32:35.6415878Z",
+                "end_time": "2018-03-31T14:35:18.6420038Z",
+                "active": true
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_pgatilov_norfolk_cache_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourceGroups/pgatilov-norfolk-cache/providers/Microsoft.Web/sites/pgatilov-norfolk-cache/hostNameBindings/pgatilov-norfolk-cache.azurewebsites.net'.",
+            "type": "Microsoft.Web/sites/hostNameBindings",
+            "name": "[concat(parameters('sites_pgatilov_norfolk_cache_name'), '/', parameters('hostNameBindings_pgatilov_norfolk_cache.azurewebsites.net_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "siteName": "pgatilov-norfolk-cache",
+                "domainId": null,
+                "hostNameType": "Verified"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_pgatilov_norfolk_cache_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourceGroups/pgatilov-norfolk-cache/providers/Microsoft.Web/sites/pgatilov-norfolk-cache/slots/ci'.",
+            "type": "Microsoft.Web/sites/slots",
+            "kind": "app",
+            "name": "[concat(parameters('sites_pgatilov_norfolk_cache_name'), '/', parameters('slots_ci_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "enabled": true,
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat('pgatilov-norfolk-cache-', parameters('slots_ci_name'),'.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Standard"
+                    },
+                    {
+                        "name": "[concat('pgatilov-norfolk-cache-', parameters('slots_ci_name'),'.scm.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Repository"
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_pgatilov_norfolk_cache_plan_name'))]",
+                "reserved": false,
+                "siteConfig": null,
+                "scmSiteAlsoStopped": false,
+                "hostingEnvironmentProfile": null,
+                "clientAffinityEnabled": true,
+                "clientCertEnabled": false,
+                "hostNamesDisabled": false,
+                "containerSize": 0,
+                "dailyMemoryTimeQuota": 0,
+                "cloningInfo": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_pgatilov_norfolk_cache_name'))]",
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_pgatilov_norfolk_cache_plan_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourceGroups/pgatilov-norfolk-cache/providers/Microsoft.Web/sites/pgatilov-norfolk-cache/slots/uat'.",
+            "type": "Microsoft.Web/sites/slots",
+            "kind": "app",
+            "name": "[concat(parameters('sites_pgatilov_norfolk_cache_name'), '/', parameters('slots_uat_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "enabled": true,
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat('pgatilov-norfolk-cache-', parameters('slots_uat_name'),'.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Standard"
+                    },
+                    {
+                        "name": "[concat('pgatilov-norfolk-cache-', parameters('slots_uat_name'),'.scm.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Repository"
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_pgatilov_norfolk_cache_plan_name'))]",
+                "reserved": false,
+                "siteConfig": null,
+                "scmSiteAlsoStopped": false,
+                "hostingEnvironmentProfile": null,
+                "clientAffinityEnabled": true,
+                "clientCertEnabled": false,
+                "hostNamesDisabled": false,
+                "containerSize": 0,
+                "dailyMemoryTimeQuota": 0,
+                "cloningInfo": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_pgatilov_norfolk_cache_name'))]",
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_pgatilov_norfolk_cache_plan_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourceGroups/pgatilov-norfolk-cache/providers/Microsoft.Web/sites/pgatilov-norfolk-cache/slots/release'.",
+            "type": "Microsoft.Web/sites/slots",
+            "kind": "app",
+            "name": "[concat(parameters('sites_pgatilov_norfolk_cache_name'), '/', parameters('slots_release_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "enabled": true,
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat('pgatilov-norfolk-cache-', parameters('slots_release_name'),'.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Standard"
+                    },
+                    {
+                        "name": "[concat('pgatilov-norfolk-cache-', parameters('slots_release_name'),'.scm.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Repository"
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_pgatilov_norfolk_cache_plan_name'))]",
+                "reserved": false,
+                "siteConfig": null,
+                "scmSiteAlsoStopped": false,
+                "hostingEnvironmentProfile": null,
+                "clientAffinityEnabled": true,
+                "clientCertEnabled": false,
+                "hostNamesDisabled": false,
+                "containerSize": 0,
+                "dailyMemoryTimeQuota": 0,
+                "cloningInfo": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_pgatilov_norfolk_cache_name'))]",
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_pgatilov_norfolk_cache_plan_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourceGroups/pgatilov-norfolk-cache/providers/Microsoft.Web/sites/pgatilov-norfolk-cache/slots/ci/config/web'.",
+            "type": "Microsoft.Web/sites/slots/config",
+            "name": "[concat(parameters('sites_pgatilov_norfolk_cache_name'), '/', parameters('slots_ci_name'), '/', parameters('config_web_name_1'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "phpVersion": "5.6",
+                "pythonVersion": "",
+                "nodeVersion": "",
+                "linuxFxVersion": "",
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": null,
+                "httpLoggingEnabled": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "$pgatilov-norfolk-cache__ci",
+                "publishingPassword": null,
+                "appSettings": null,
+                "metadata": null,
+                "connectionStrings": null,
+                "machineKey": null,
+                "handlerMappings": null,
+                "documentRoot": null,
+                "scmType": "GitHub",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "javaVersion": null,
+                "javaContainer": null,
+                "javaContainerVersion": null,
+                "appCommandLine": "",
+                "managedPipelineMode": "Integrated",
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": false,
+                        "virtualDirectories": null
+                    }
+                ],
+                "winAuthAdminState": 0,
+                "winAuthTenantState": 0,
+                "customAppPoolIdentityAdminState": false,
+                "customAppPoolIdentityTenantState": false,
+                "runtimeADUser": null,
+                "runtimeADUserPassword": null,
+                "loadBalancing": "LeastRequests",
+                "routingRules": [],
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "limits": null,
+                "autoHealEnabled": false,
+                "autoHealRules": null,
+                "tracingOptions": null,
+                "vnetName": "",
+                "siteAuthEnabled": false,
+                "siteAuthSettings": {
+                    "enabled": null,
+                    "unauthenticatedClientAction": null,
+                    "tokenStoreEnabled": null,
+                    "allowedExternalRedirectUrls": null,
+                    "defaultProvider": null,
+                    "clientId": null,
+                    "clientSecret": null,
+                    "issuer": null,
+                    "allowedAudiences": null,
+                    "additionalLoginParams": null,
+                    "isAadAutoProvisioned": false,
+                    "googleClientId": null,
+                    "googleClientSecret": null,
+                    "googleOAuthScopes": null,
+                    "facebookAppId": null,
+                    "facebookAppSecret": null,
+                    "facebookOAuthScopes": null,
+                    "twitterConsumerKey": null,
+                    "twitterConsumerSecret": null,
+                    "microsoftAccountClientId": null,
+                    "microsoftAccountClientSecret": null,
+                    "microsoftAccountOAuthScopes": null
+                },
+                "cors": null,
+                "push": null,
+                "apiDefinition": null,
+                "autoSwapSlotName": null,
+                "localMySqlEnabled": false,
+                "managedServiceIdentityId": null,
+                "ipSecurityRestrictions": null,
+                "http20Enabled": true,
+                "minTlsVersion": "1.0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_pgatilov_norfolk_cache_name'))]",
+                "[resourceId('Microsoft.Web/sites/slots', parameters('sites_pgatilov_norfolk_cache_name'), parameters('slots_ci_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourcegroups/pgatilov-norfolk-cache/providers/Microsoft.Web/sites/pgatilov-norfolk-cache/slots/ci/deployments/d8cd4c1ad34c8c5be81333b628989f9a27dc3263'.",
+            "type": "Microsoft.Web/sites/slots/deployments",
+            "name": "[concat(parameters('sites_pgatilov_norfolk_cache_name'), '/', parameters('slots_ci_name'), '/', parameters('deployments_d8cd4c1ad34c8c5be81333b628989f9a27dc3263_name_1'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "id": "[parameters('deployments_d8cd4c1ad34c8c5be81333b628989f9a27dc3263_name_1')]",
+                "status": 4,
+                "author_email": "pgatilov@outlook.com",
+                "author": "Pavel Gatilov",
+                "deployer": "GitHub",
+                "message": "Test changes to web UI\n",
+                "start_time": "2018-03-31T14:29:44.7853321Z",
+                "end_time": "2018-03-31T14:31:52.5261939Z",
+                "active": true
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_pgatilov_norfolk_cache_name'))]",
+                "[resourceId('Microsoft.Web/sites/slots', parameters('sites_pgatilov_norfolk_cache_name'), parameters('slots_ci_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourceGroups/pgatilov-norfolk-cache/providers/Microsoft.Web/sites/pgatilov-norfolk-cache/slots/ci/hostNameBindings/pgatilov-norfolk-cache-ci.azurewebsites.net'.",
+            "type": "Microsoft.Web/sites/slots/hostNameBindings",
+            "name": "[concat(parameters('sites_pgatilov_norfolk_cache_name'), '/', parameters('slots_ci_name'), '/', parameters('hostNameBindings_pgatilov_norfolk_cache_ci.azurewebsites.net_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "siteName": "pgatilov-norfolk-cache(ci)",
+                "domainId": null,
+                "hostNameType": "Verified"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_pgatilov_norfolk_cache_name'))]",
+                "[resourceId('Microsoft.Web/sites/slots', parameters('sites_pgatilov_norfolk_cache_name'), parameters('slots_ci_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourceGroups/pgatilov-norfolk-cache/providers/Microsoft.Web/sites/pgatilov-norfolk-cache/slots/uat/config/web'.",
+            "type": "Microsoft.Web/sites/slots/config",
+            "name": "[concat(parameters('sites_pgatilov_norfolk_cache_name'), '/', parameters('slots_uat_name'), '/', parameters('config_web_name_2'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "phpVersion": "5.6",
+                "pythonVersion": "",
+                "nodeVersion": "",
+                "linuxFxVersion": "",
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": null,
+                "httpLoggingEnabled": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "$pgatilov-norfolk-cache__uat",
+                "publishingPassword": null,
+                "appSettings": null,
+                "metadata": null,
+                "connectionStrings": null,
+                "machineKey": null,
+                "handlerMappings": null,
+                "documentRoot": null,
+                "scmType": "GitHub",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "javaVersion": null,
+                "javaContainer": null,
+                "javaContainerVersion": null,
+                "appCommandLine": "",
+                "managedPipelineMode": "Integrated",
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": false,
+                        "virtualDirectories": null
+                    }
+                ],
+                "winAuthAdminState": 0,
+                "winAuthTenantState": 0,
+                "customAppPoolIdentityAdminState": false,
+                "customAppPoolIdentityTenantState": false,
+                "runtimeADUser": null,
+                "runtimeADUserPassword": null,
+                "loadBalancing": "LeastRequests",
+                "routingRules": [],
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "limits": null,
+                "autoHealEnabled": false,
+                "autoHealRules": null,
+                "tracingOptions": null,
+                "vnetName": "",
+                "siteAuthEnabled": false,
+                "siteAuthSettings": {
+                    "enabled": null,
+                    "unauthenticatedClientAction": null,
+                    "tokenStoreEnabled": null,
+                    "allowedExternalRedirectUrls": null,
+                    "defaultProvider": null,
+                    "clientId": null,
+                    "clientSecret": null,
+                    "issuer": null,
+                    "allowedAudiences": null,
+                    "additionalLoginParams": null,
+                    "isAadAutoProvisioned": false,
+                    "googleClientId": null,
+                    "googleClientSecret": null,
+                    "googleOAuthScopes": null,
+                    "facebookAppId": null,
+                    "facebookAppSecret": null,
+                    "facebookOAuthScopes": null,
+                    "twitterConsumerKey": null,
+                    "twitterConsumerSecret": null,
+                    "microsoftAccountClientId": null,
+                    "microsoftAccountClientSecret": null,
+                    "microsoftAccountOAuthScopes": null
+                },
+                "cors": null,
+                "push": null,
+                "apiDefinition": null,
+                "autoSwapSlotName": null,
+                "localMySqlEnabled": false,
+                "managedServiceIdentityId": null,
+                "ipSecurityRestrictions": null,
+                "http20Enabled": true,
+                "minTlsVersion": "1.0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_pgatilov_norfolk_cache_name'))]",
+                "[resourceId('Microsoft.Web/sites/slots', parameters('sites_pgatilov_norfolk_cache_name'), parameters('slots_uat_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourcegroups/pgatilov-norfolk-cache/providers/Microsoft.Web/sites/pgatilov-norfolk-cache/slots/uat/deployments/d8cd4c1ad34c8c5be81333b628989f9a27dc3263'.",
+            "type": "Microsoft.Web/sites/slots/deployments",
+            "name": "[concat(parameters('sites_pgatilov_norfolk_cache_name'), '/', parameters('slots_uat_name'), '/', parameters('deployments_d8cd4c1ad34c8c5be81333b628989f9a27dc3263_name_2'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "id": "[parameters('deployments_d8cd4c1ad34c8c5be81333b628989f9a27dc3263_name_2')]",
+                "status": 4,
+                "author_email": "pgatilov@outlook.com",
+                "author": "Pavel Gatilov",
+                "deployer": "GitHub",
+                "message": "Test changes to web UI\n",
+                "start_time": "2018-03-31T14:31:43.8091288Z",
+                "end_time": "2018-03-31T14:35:09.4406047Z",
+                "active": true
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_pgatilov_norfolk_cache_name'))]",
+                "[resourceId('Microsoft.Web/sites/slots', parameters('sites_pgatilov_norfolk_cache_name'), parameters('slots_uat_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourceGroups/pgatilov-norfolk-cache/providers/Microsoft.Web/sites/pgatilov-norfolk-cache/slots/uat/hostNameBindings/pgatilov-norfolk-cache-uat.azurewebsites.net'.",
+            "type": "Microsoft.Web/sites/slots/hostNameBindings",
+            "name": "[concat(parameters('sites_pgatilov_norfolk_cache_name'), '/', parameters('slots_uat_name'), '/', parameters('hostNameBindings_pgatilov_norfolk_cache_uat.azurewebsites.net_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "siteName": "pgatilov-norfolk-cache(uat)",
+                "domainId": null,
+                "hostNameType": "Verified"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_pgatilov_norfolk_cache_name'))]",
+                "[resourceId('Microsoft.Web/sites/slots', parameters('sites_pgatilov_norfolk_cache_name'), parameters('slots_uat_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourceGroups/pgatilov-norfolk-cache/providers/Microsoft.Web/sites/pgatilov-norfolk-cache/slots/release/config/web'.",
+            "type": "Microsoft.Web/sites/slots/config",
+            "name": "[concat(parameters('sites_pgatilov_norfolk_cache_name'), '/', parameters('slots_release_name'), '/', parameters('config_web_name_3'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "phpVersion": "5.6",
+                "pythonVersion": "",
+                "nodeVersion": "",
+                "linuxFxVersion": "",
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": null,
+                "httpLoggingEnabled": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "$pgatilov-norfolk-cache__release",
+                "publishingPassword": null,
+                "appSettings": null,
+                "metadata": null,
+                "connectionStrings": null,
+                "machineKey": null,
+                "handlerMappings": null,
+                "documentRoot": null,
+                "scmType": "GitHub",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "javaVersion": null,
+                "javaContainer": null,
+                "javaContainerVersion": null,
+                "appCommandLine": "",
+                "managedPipelineMode": "Integrated",
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": false,
+                        "virtualDirectories": null
+                    }
+                ],
+                "winAuthAdminState": 0,
+                "winAuthTenantState": 0,
+                "customAppPoolIdentityAdminState": false,
+                "customAppPoolIdentityTenantState": false,
+                "runtimeADUser": null,
+                "runtimeADUserPassword": null,
+                "loadBalancing": "LeastRequests",
+                "routingRules": [],
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "limits": null,
+                "autoHealEnabled": false,
+                "autoHealRules": null,
+                "tracingOptions": null,
+                "vnetName": "",
+                "siteAuthEnabled": false,
+                "siteAuthSettings": {
+                    "enabled": null,
+                    "unauthenticatedClientAction": null,
+                    "tokenStoreEnabled": null,
+                    "allowedExternalRedirectUrls": null,
+                    "defaultProvider": null,
+                    "clientId": null,
+                    "clientSecret": null,
+                    "issuer": null,
+                    "allowedAudiences": null,
+                    "additionalLoginParams": null,
+                    "isAadAutoProvisioned": false,
+                    "googleClientId": null,
+                    "googleClientSecret": null,
+                    "googleOAuthScopes": null,
+                    "facebookAppId": null,
+                    "facebookAppSecret": null,
+                    "facebookOAuthScopes": null,
+                    "twitterConsumerKey": null,
+                    "twitterConsumerSecret": null,
+                    "microsoftAccountClientId": null,
+                    "microsoftAccountClientSecret": null,
+                    "microsoftAccountOAuthScopes": null
+                },
+                "cors": null,
+                "push": null,
+                "apiDefinition": null,
+                "autoSwapSlotName": null,
+                "localMySqlEnabled": false,
+                "managedServiceIdentityId": null,
+                "ipSecurityRestrictions": null,
+                "http20Enabled": false,
+                "minTlsVersion": "1.0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_pgatilov_norfolk_cache_name'))]",
+                "[resourceId('Microsoft.Web/sites/slots', parameters('sites_pgatilov_norfolk_cache_name'), parameters('slots_release_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourcegroups/pgatilov-norfolk-cache/providers/Microsoft.Web/sites/pgatilov-norfolk-cache/slots/release/deployments/d8cd4c1ad34c8c5be81333b628989f9a27dc3263'.",
+            "type": "Microsoft.Web/sites/slots/deployments",
+            "name": "[concat(parameters('sites_pgatilov_norfolk_cache_name'), '/', parameters('slots_release_name'), '/', parameters('deployments_d8cd4c1ad34c8c5be81333b628989f9a27dc3263_name_3'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "id": "[parameters('deployments_d8cd4c1ad34c8c5be81333b628989f9a27dc3263_name_3')]",
+                "status": 4,
+                "author_email": "pgatilov@outlook.com",
+                "author": "Pavel Gatilov",
+                "deployer": "GitHub",
+                "message": "Test changes to web UI\n",
+                "start_time": "2018-03-31T14:41:32.8291299Z",
+                "end_time": "2018-03-31T14:43:30.1407483Z",
+                "active": true
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_pgatilov_norfolk_cache_name'))]",
+                "[resourceId('Microsoft.Web/sites/slots', parameters('sites_pgatilov_norfolk_cache_name'), parameters('slots_release_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c70615d4-f1c8-4e46-a4b1-4d4d1a7d42b8/resourceGroups/pgatilov-norfolk-cache/providers/Microsoft.Web/sites/pgatilov-norfolk-cache/slots/release/hostNameBindings/pgatilov-norfolk-cache-release.azurewebsites.net'.",
+            "type": "Microsoft.Web/sites/slots/hostNameBindings",
+            "name": "[concat(parameters('sites_pgatilov_norfolk_cache_name'), '/', parameters('slots_release_name'), '/', parameters('hostNameBindings_pgatilov_norfolk_cache_release.azurewebsites.net_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "siteName": "pgatilov-norfolk-cache(release)",
+                "domainId": null,
+                "hostNameType": "Verified"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_pgatilov_norfolk_cache_name'))]",
+                "[resourceId('Microsoft.Web/sites/slots', parameters('sites_pgatilov_norfolk_cache_name'), parameters('slots_release_name'))]"
+            ]
+        }
+    ]
+}
